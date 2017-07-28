@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Personal</title>
+</head>
+<body>
+					
+					<p>Select a Student ID:</p>
+
+<select data-ng-model="selectedID" ng-options="s.studentId for s in studentpds">
+</select>
+
+<h1>Student ID: {{selectedID.studentId}}</h1>
+<h2>Student Name: {{selectedID.name}}</h2>
+<h2>Student Date of Birth :{{selectedID.dob}}</h2>
+<h2>Student Age :{{selectedID.age}}</h2>
+<h2>Parent Name :{{selectedID.parentName}}</h2>
+<h2>Contact Phone :{{selectedID.contactNo}}</h2>
+<h2>Contact Email :{{selectedID.contactEmail}}</h2>
+<h2>Student Blood Group :{{selectedID.bloodGrp}}</h2>
+</body>
+</html>
