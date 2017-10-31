@@ -1,7 +1,6 @@
 package com.eagle.dao;
 
-import java.sql.Date;
-import java.sql.Date;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -119,8 +118,8 @@ import com.eagle.model.StudentSD;
 		}
 
 		@Override
-		public boolean studentsdExists(Date dateofjoinig, String presentkyu, String presentbelt,Date lastgradingdate, Date nextgradingdate, String katas, String combinations, String sparingtechniques,
-				String level, String kbi, String open, Date feepaid, String pendingfee) {
+		public boolean studentsdExists(String dateofjoinig, String presentkyu, String presentbelt,String lastgradingdate, String nextgradingdate, String katas, String combinations, String sparingtechniques,
+				String level, String kbi, String open, String feepaid, String pendingfee) {
 			String hql = "FROM StudentSD as std WHERE std.dateofjoining = ? and std.presentkyu = ? and std.presentbelt = ? and std.lastgradingdate = ? and std.nextgradingdate = ?"
 					+ " and std.katas = ? and std.combinations = ? and std.sparingtechniques = ? and std.level = ? and std.kbi = ? and std.open = ?"
 					+ "and std.feepaid = ? and std.pendingfee = ? ";

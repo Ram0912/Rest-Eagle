@@ -4,7 +4,6 @@
 <meta charset="ISO-8859-1">
 <title>Eagle</title>
 
-<link rel="icon" type="image/x-icon" href="e_resources/favicon.png">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,16 +17,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<link rel="stylesheet"
-	href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet'
-	href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Open+Sans">
 <link rel="stylesheet" href="e_resources/assets/css/font-awesome.min.css">
-<link
-	href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
-	rel="stylesheet" type="text/css" />
-<link href="e_resources/assets/css/style.css" rel="stylesheet"
-	type="text/css">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" type="text/css" />
+<link href="e_resources/assets/css/style.css" rel="stylesheet" type="text/css">
 
 <style>
 /* Set black background color, white text and some padding */
@@ -36,17 +30,16 @@ footer {
 	color: white;
 	padding: 15px;
 }
-li {
-	display: inline;
-}
+
+
 </style>
 </head>
 <body class="w3-theme-l5" data-ng-app="myApp"
-	data-ng-controller="studentpdController">
+	data-ng-controller="studentController">
 
 	<div data-ng-include src="'e_pages/navbar.html'"></div>
 
-	<hr>
+	
 	<!-- end title -->
 
 	<!-- 	middle view -->
@@ -65,18 +58,17 @@ li {
 	<!-- End Footer -->
 
 	<!-- 	Angular Script -->
-	<script type="text/javascript"
-		src="e_resources/assets/js/angular.min.js"></script>
-	<script type="text/javascript"
-		src="e_resources/assets/js/angular-route.min.js"></script>
-	<script type="text/javascript"
-		src="e_resources/assets/js/angular-cookies.min.js"></script>
-	
+	<script type="text/javascript" src="e_resources/assets/js/angular.min.js"></script>
+	<script type="text/javascript" src="e_resources/assets/js/angular-route.min.js"></script>
+	<script type="text/javascript" src="e_resources/assets/js/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="e_resources/assets/js/jquery.min.js"></script>
+
 	<script type="text/javascript" src="app.js"></script>
-	<script type="text/javascript" src="e_personal/studentpdController.js"></script>
-	<script type="text/javascript" src="e_personal/editController.js"></script>
-	<script type="text/javascript" src="e_personal/studentpdService.js"></script>
-	
+	<script type="text/javascript" src="e_personal/studentController.js"></script>
+	<script type="text/javascript" src="e_personal/studentService.js"></script>
+
 	<!-- 	End AngularScript -->
 </body>
 </html>
+
+

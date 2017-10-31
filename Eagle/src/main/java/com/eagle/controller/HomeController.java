@@ -1,23 +1,24 @@
 package com.eagle.controller;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.eagle.model.ImageUrl;
 import com.eagle.model.StudentPD;
 import com.eagle.model.StudentSD;
 import com.eagle.service.ServiceI;
@@ -28,11 +29,9 @@ public class HomeController {
 
 	     //sample endpoint--- localhost:8080/rest/eagle
 
-		final static Logger logger = Logger.getLogger(HomeController.class);
-
 		@Autowired
 		private ServiceI serviceI;
-		
+
 
 		// Route Controller
 		
@@ -71,7 +70,7 @@ public class HomeController {
 			serviceI.updateStudentPD(studentpd);
 			return new ResponseEntity<StudentPD>(studentpd, HttpStatus.OK);
 		}
-
+		@CrossOrigin
 		@DeleteMapping("/deleteStudentpd/{id}")
 		public ResponseEntity<Void> deleteStudentPD(@PathVariable("id") String id) {
 			serviceI.deleteStudentPD(id);
@@ -117,4 +116,67 @@ public class HomeController {
 		}
 		
 		
+		//Image Upload controller
+		
+		@GetMapping("/student")// Sample: localhost:8080/rest/studentimage
+		public String getStudentImages() {
+			String folders=serviceI.getStudentImages();
+			return folders;
+		}
+
+		@GetMapping("/student/{studentId}") //Sample: localhost:8080/rest/city/Guindy
+		public List<ImageUrl> getStudent(@PathVariable("studentId") String studentId, HttpServletRequest request) {
+			List<ImageUrl> studentimages=serviceI.getStudentImageUrl(studentId,request);
+			return studentimages;
+		}
+	   
+		@GetMapping(value = "/student/{studentId}/{image}")
+		public byte[] getImage(@PathVariable("studentId") String studentId, @PathVariable("image") String image)
+				throws IOException {
+			byte[] images=serviceI.getImage( studentId, image);
+					return images;
+		}
+
+		//image
+		List<String> files = new ArrayList<String>();
+	@PostMapping("/uploadfile")
+	public String uploadFileMulti(
+			@RequestParam("uploadfile") MultipartFile file) throws Exception {
+
+		System.out.println("Function Called*********");
+		try {
+			serviceI.store(file);
+			files.add(file.getOriginalFilename());
+			return "You successfully uploaded - " + file.getOriginalFilename();
+		} catch (Exception e) {
+			throw new Exception("FAIL! Maybe You had uploaded the file before or the file's size > 500KB");
+		}
+	}
+	@PostMapping(value = "/doUpload")
+	public ResponseEntity<?> handleFileUpload(HttpServletRequest request, HttpSession session,
+											  @RequestParam CommonsMultipartFile fileUpload) throws Exception {
+	CommonsMultipartFile file = fileUpload;
+		serviceI.store(file);
+			System.out.println("Saving File: " + file.getOriginalFilename());
+
+		byte[] imagefiles = getUploadFile.getData(); // image
+
+			try {
+		String path = "./src/resources/student/"
+				+ user.getEmailId();
+		System.out.println("Path: " + path);
+		File files = new File(path);
+		FileOutputStream fos = new FileOutputStream(files);
+		fos.write(imagefiles);
+		fos.close();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+}
+
+		return new ResponseEntity<UploadFile>(HttpStatus.OK);
+		}
+
 }

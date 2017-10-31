@@ -1,6 +1,6 @@
 package com.eagle.model;
 
-import java.sql.Date;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,17 +18,17 @@ public class StudentSD {
 		private String studentId;
 		@Column
 		@JsonFormat(pattern="yyyy-MM-dd")
-		private Date dateofjoining;
+		private String dateofjoining;
 		@Column
 		private String presentkyu;
 		@Column
 		private String presentbelt;
 		@Column
 		@JsonFormat(pattern="yyyy-MM-dd")
-		private Date lastgradingdate;
+		private String lastgradingdate;
 		@Column
 		@JsonFormat(pattern="yyyy-MM-dd")
-		private Date nextgradingdate;
+		private String nextgradingdate;
 		@Column
 		private String katas;
 		@Column
@@ -43,7 +43,7 @@ public class StudentSD {
 		private String open;
 		@Column
 		@JsonFormat(pattern="yyyy-MM-dd")
-		private Date feepaid;
+		private String feepaid;
 		@Column
 		private String pendingfee;
 		
@@ -57,9 +57,9 @@ public class StudentSD {
 
 
 
-		public StudentSD(String studentId, Date dateofjoining, String presentkyu, String presentbelt,
-				Date lastgradingdate, Date nextgradingdate, String katas, String combinations, String sparingtechniques,
-				String level, String kbi, String open, Date feepaid, String pendingfee) {
+		public StudentSD(String studentId, String dateofjoining, String presentkyu, String presentbelt,
+				String lastgradingdate, String nextgradingdate, String katas, String combinations, String sparingtechniques,
+				String level, String kbi, String open, String feepaid, String pendingfee) {
 			
 			this.studentId = studentId;
 			this.dateofjoining = dateofjoining;
@@ -94,14 +94,14 @@ public class StudentSD {
 
 
 
-		public Date getDateofjoining() {
+		public String getDateofjoining() {
 			return dateofjoining;
 		}
 
 
 
 
-		public void setDateofjoining(Date dateofjoining) {
+		public void setDateofjoining(String dateofjoining) {
 			this.dateofjoining = dateofjoining;
 		}
 
@@ -136,28 +136,28 @@ public class StudentSD {
 
 
 
-		public Date getLastgradingdate() {
+		public String getLastgradingdate() {
 			return lastgradingdate;
 		}
 
 
 
 
-		public void setLastgradingdate(Date lastgradingdate) {
+		public void setLastgradingdate(String lastgradingdate) {
 			this.lastgradingdate = lastgradingdate;
 		}
 
 
 
 
-		public Date getNextgradingdate() {
+		public String getNextgradingdate() {
 			return nextgradingdate;
 		}
 
 
 
 
-		public void setNextgradingdate(Date nextgradingdate) {
+		public void setNextgradingdate(String nextgradingdate) {
 			this.nextgradingdate = nextgradingdate;
 		}
 
@@ -248,14 +248,14 @@ public class StudentSD {
 
 
 
-		public Date getFeepaid() {
+		public String getFeepaid() {
 			return feepaid;
 		}
 
 
 
 
-		public void setFeepaid(Date feepaid) {
+		public void setFeepaid(String feepaid) {
 			this.feepaid = feepaid;
 		}
 

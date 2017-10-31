@@ -1,7 +1,6 @@
 package com.eagle.dao;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+
 import java.util.List;
 
 import com.eagle.model.StudentPD;
@@ -39,7 +38,7 @@ public interface Dao {
 
 	// Check whether student ID exists or not to create a new route to avoid
 	// duplication
-	boolean studentsdExists(Date dateofjoinig, String presentkyu, String presentbelt,Date lastgradingdate, Date nextgradingdate, String katas, String combinations, String sparingtechniques,
-			String level, String kbi, String open, Date feepaid, String pendingfee);
+	boolean studentsdExists(String dateofjoinig, String presentkyu, String presentbelt,String lastgradingdate, String nextgradingdate, String katas, String combinations, String sparingtechniques,
+			String level, String kbi, String open, String feepaid, String pendingfee);
 
 }

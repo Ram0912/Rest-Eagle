@@ -1,9 +1,15 @@
 package com.eagle.service;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.eagle.model.ImageUrl;
 import com.eagle.model.StudentPD;
 import com.eagle.model.StudentSD;
+import org.springframework.core.io.Resource;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface ServiceI {
 
@@ -32,4 +38,19 @@ public interface ServiceI {
 	void updateStudentSD(StudentSD studentsd);
 
 	void deleteStudentSD(String studentId);
-}
+	
+	
+	//Image Service
+	
+		//Get All Cities
+		String getStudentImages();
+		//Get All the Image Url for given City
+		List<ImageUrl> getStudentImageUrl(String studentId, HttpServletRequest request);
+		//Get the image for given URL
+		byte[] getImage(String studentId, String imagename) throws IOException;
+	void store(MultipartFile file);
+	void init();
+	void deleteAll();
+	Resource loadFile(String filename);
+	}
+
