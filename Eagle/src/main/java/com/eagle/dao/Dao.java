@@ -7,38 +7,39 @@ import com.eagle.model.StudentPD;
 import com.eagle.model.StudentSD;
 
 public interface Dao {
-	
-	//Student Personal Details DAO
-	
-	List<StudentPD> getAllStudentPDs();
 
-	StudentPD getStudentPDById(String studentId);
+    //Student Personal Details DAO
 
-	void addStudentPD(StudentPD studentpd);
+    List<StudentPD> getAllStudentPDs();
 
-	void updateStudentPD(StudentPD studentpd);
 
-	void deleteStudentPD(String studentId);
+    StudentPD getStudentPDById(String studentId);
 
-	// Check whether student ID exists or not to create a new route to avoid
-	// duplication
-	boolean studentExists(String name, String dob,Integer age,String parentName,String contactNo,String contactEmail,String bloodGrp);
+    void addStudentPD(StudentPD studentpd);
 
-	//Student Syllabus Details DAO
-	
-	List<StudentSD> getAllStudentSDs();
+    void updateStudentPD(StudentPD studentpd);
 
-	StudentSD getStudentSDById(String studentId);
+    void deleteStudentPD(String studentId);
 
-	void addStudentSD(StudentSD studentsd);
+    // Check whether student ID exists or not to create a new route to avoid
+    // duplication
+    boolean studentExists(String name, String dob, Integer age, String parentName, String contactNo, String contactEmail, String bloodGrp);
 
-	void updateStudentSD(StudentSD studentsd);
+    //Student Syllabus Details DAO
 
-	void deleteStudentSD(String studentId);
+    List<StudentSD> getAllStudentSDs();
 
-	// Check whether student ID exists or not to create a new route to avoid
-	// duplication
-	boolean studentsdExists(String dateofjoinig, String presentkyu, String presentbelt,String lastgradingdate, String nextgradingdate, String katas, String combinations, String sparingtechniques,
-			String level, String kbi, String open, String feepaid, String pendingfee);
+    StudentSD getStudentSDById(String studentId);
+
+    void addStudentSD(StudentSD studentsd);
+
+    void updateStudentSD(StudentSD studentsd);
+
+    void deleteStudentSD(String studentId);
+
+    // Check whether student ID exists or not to create a new route to avoid
+    // duplication
+    boolean studentsdExists(String dateofjoinig, String presentkyu, String presentbelt, String lastgradingdate, String nextgradingdate, String katas, String combinations, String sparingtechniques,
+                            String level, String kbi, String open, String feepaid, String pendingfee);
 
 }

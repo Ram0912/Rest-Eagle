@@ -13,44 +13,43 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ServiceI {
 
-	//Student Personal Details Implementation
-	
-	List<StudentPD> getAllStudentPDs();
+    //Student Personal Details Implementation
 
-	// Get students based on ID
-	StudentPD getStudentPDById(String studentId);
-	
-	boolean addStudentPD(StudentPD studentpd);
+    List<StudentPD> getAllStudentPDs();
 
-	void updateStudentPD(StudentPD studentpd);
+    // Get students based on ID
+    StudentPD getStudentPDById(String studentId);
 
-	void deleteStudentPD(String studentId);
-	
-	//Student Syllabus Details Implementation
-	
-	List<StudentSD> getAllStudentSDs();
+    boolean addStudentPD(StudentPD studentpd);
 
-	// Get students based on ID
-	StudentSD getStudentSDById(String studentId);
-	
-	boolean addStudentSD(StudentSD studentsd);
+    void updateStudentPD(StudentPD studentpd);
 
-	void updateStudentSD(StudentSD studentsd);
+    void deleteStudentPD(String studentId);
 
-	void deleteStudentSD(String studentId);
-	
-	
-	//Image Service
-	
-		//Get All Cities
-		String getStudentImages();
-		//Get All the Image Url for given City
-		List<ImageUrl> getStudentImageUrl(String studentId, HttpServletRequest request);
-		//Get the image for given URL
-		byte[] getImage(String studentId, String imagename) throws IOException;
-	void store(MultipartFile file);
-	void init();
-	void deleteAll();
-	Resource loadFile(String filename);
-	}
+    //Student Syllabus Details Implementation
+
+    List<StudentSD> getAllStudentSDs();
+
+    // Get students based on ID
+    StudentSD getStudentSDById(String studentId);
+
+    boolean addStudentSD(StudentSD studentsd);
+
+    void updateStudentSD(StudentSD studentsd);
+
+    void deleteStudentSD(String studentId);
+
+
+    //Image Service
+
+    //Get All Cities
+    String getStudentImages();
+
+    //Get All the Image Url for given City
+    List<ImageUrl> getStudentImageUrl(String studentId, HttpServletRequest request);
+
+    //Get the image for given URL
+    byte[] getImage(String studentId, String imagename) throws IOException;
+
+}
 

@@ -13,6 +13,9 @@ app.controller(
 						contactEmail : '',
 						bloodGrp : ''
 					};
+					$scope.name = {
+						name : ''
+					};
 					$scope.studentpdUpdate = {
 						studentId : '',
 						name : '',
@@ -55,6 +58,8 @@ app.controller(
 							feepaid :'',
 							pendingfee :''
 					};
+					$scope.studentselected = $scope.studentpds;
+					$scope.studentselected1=$scope.studentsds;
 					$scope.studentsds;
 					$scope.studentpds;
 					$scope.imgurl;
@@ -69,8 +74,9 @@ app.controller(
 						});
 					}
 					;
+					
 					fetchAllStudentpd();
-
+					
 					function fetchAllStudentsd() {
 						console
 								.log('entering fetch all Studentsds in controller')
@@ -238,10 +244,11 @@ app.controller(
 						
 						$http.post(url, data, config).then(function (response) {
 							 $scope.uploadResult=response.data;
+							 console.log(uploadResult);
 						 }, function (response) {
 							 $scope.uploadResult=response.data;
 						 });
-						 console.log(uploadResult);
+						 
 					 };
 				 
 					$scope.reset = function() {

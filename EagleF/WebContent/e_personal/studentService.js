@@ -16,6 +16,7 @@ app.factory('studentService', function($http) {
 					return response.data
 				});
 	};
+	
 
 	studentService.fetchAllStudentsd=function(){
 		console.log('get all Student syllabus details')

@@ -10,7 +10,7 @@ body, * {
 }
 
 input[type=text] {
-  width: 100%;
+  width: 50%;
   border: solid 1px #D4D4D1;
   transition: .7s;
   font-size: 1.1em;
